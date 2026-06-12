@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sandeep Addanki | Portfolio</title>
+<style>
+:root{
+--bg:#0f172a;
+--card:rgba(255,255,255,.08);
+--text:#fff;
+--accent:#38bdf8;
+--accent2:#22c55e;
+}
+.light{
+--bg:#f8fafc;
+--card:#ffffff;
+--text:#111827;
+--accent:#2563eb;
+--accent2:#16a34a;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+font-family:Segoe UI,sans-serif;
+background:var(--bg);
+color:var(--text);
+transition:.4s;
+}
+body::before{
+content:"";
+position:fixed;
+inset:0;
+background:radial-gradient(circle at top right,#38bdf833,transparent 40%),
+radial-gradient(circle at bottom left,#22c55e33,transparent 40%);
+z-index:-1;
+}
+.container{max-width:1100px;margin:auto;padding:20px}
+nav{display:flex;justify-content:space-between;padding:20px 0}
+.theme-btn{padding:10px 15px;border:none;border-radius:10px;cursor:pointer}
+.hero{text-align:center;padding:80px 0}
+.hero h1{
+font-size:64px;
+background:linear-gradient(90deg,#38bdf8,#22c55e);
+-webkit-background-clip:text;
+color:transparent;
+}
+.hero h2{margin:15px 0}
+.card{
+background:var(--card);
+backdrop-filter:blur(12px);
+padding:20px;
+border-radius:20px;
+margin:15px 0;
+}
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:15px;
+}
+.project:hover{
+transform:translateY(-8px);
+transition:.3s;
+}
+a{color:var(--accent);text-decoration:none}
+.contact a{
+display:block;
+margin:10px 0;
+font-weight:bold;
+}
+footer{text-align:center;padding:30px}
+</style>
+</head>
+<body>
+<div class="container">
+<nav>
+<h3>Sandeep Addanki</h3>
+<button class="theme-btn" onclick="document.body.classList.toggle('light')">🌙/☀️ Theme</button>
+</nav>
+
+<section class="hero">
+<h1>Sandeep Addanki</h1>
+<h2>Software Engineer • Full Stack Developer • AI Engineer</h2>
+<p>Final-year IT student with 9.0 CGPA building scalable web applications, AI systems, and cloud-based solutions.</p>
+</section>
+
+<div class="card">
+<h2>Professional Summary</h2>
+<p>Passionate Full Stack Developer and AI Engineer with expertise in Python, Java, React, Next.js, Django, FastAPI, AI/ML, NLP, RAG Systems, Cloud Computing, and scalable application development.</p>
+</div>
+
+<div class="card">
+<h2>Skills</h2>
+<p>Python • Java • JavaScript • React • Next.js • Django • FastAPI • MySQL • MongoDB • Firebase • Docker • GitHub • AI/ML • NLP • RAG • Cloud</p>
+</div>
+
+<h2>Projects</h2>
+<div class="grid">
+<div class="card project">
+<h3>AI Youth Mental Health System</h3>
+<p>AI-powered platform using NLP, RAG, Gemini API, Firebase, and Next.js.</p>
+<p><b>Impact:</b> 500+ mood records and 20% prediction improvement.</p>
+</div>
+
+<div class="card project">
+<h3>SAIOF – Smart AI Optimization Framework</h3>
+<p>AI middleware with traffic prediction, caching, analytics dashboard, and optimization engine.</p>
+<p><b>Impact:</b> 835 req/sec and 87% cache hit ratio.</p>
+</div>
+</div>
+
+<div class="card">
+<h2>Experience</h2>
+<h3>Python Full Stack Intern – SkillDzire</h3>
+<ul>
+<li>Developed scalable REST APIs using Django.</li>
+<li>Processed 1000+ records using Pandas and NumPy.</li>
+<li>Improved API response times by 25%.</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Education</h2>
+<p><b>B.Tech Information Technology</b><br>Vishnu Institute of Technology<br>CGPA: 9.0</p>
+</div>
+
+<div class="card">
+<h2>Achievements</h2>
+<ul>
+<li>Google Cloud Arcade – Season Legend</li>
+<li>Salesforce Certified Agentforce Specialist</li>
+</ul>
+</div>
+
+<div class="card contact">
+<h2>Contact Me</h2>
+<a href="mailto:sandeepaddanki31@gmail.com">📧 sandeepaddanki31@gmail.com</a>
+<a href="tel:+917893719767">📱 +91 7893719767</a>
+<a href="https://github.com/Sandeep-31-06" target="_blank">💻 GitHub Profile</a>
+<a href="https://linkedin.com/in/SandeepAddanki" target="_blank">💼 LinkedIn Profile</a>
+<p>Open to Software Engineer, Full Stack Developer, AI Engineer and Internship Opportunities.</p>
+</div>
+
+<footer>
+© 2026 Sandeep Addanki | Software Engineer • Full Stack Developer • AI Engineer
+</footer>
+</div>
+</body>
+</html>
