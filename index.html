@@ -445,6 +445,46 @@
   }
   .project-stack { display: flex; flex-wrap: wrap; gap: 0.4rem; }
 
+  /* ── PROJECT FILTER TABS ── */
+  .filter-tabs {
+    display: flex; flex-wrap: wrap; gap: 0.6rem;
+    margin-bottom: 2.5rem;
+  }
+  .filter-tab {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.85rem; font-weight: 500;
+    padding: 0.5rem 1.2rem;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 0.01em;
+  }
+  .filter-tab:hover { border-color: var(--accent); color: var(--accent); }
+  .filter-tab.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+    box-shadow: 0 4px 14px var(--accent-glow);
+  }
+  .project-card[data-hidden="true"] {
+    display: none;
+  }
+  .project-category-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem; padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    background: var(--accent-glow);
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    opacity: 0.85;
+    align-self: flex-start;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
   /* ── ACHIEVEMENTS ── */
   .achievements-grid {
     display: grid;
@@ -570,7 +610,7 @@
       <span class="accent">Addanki</span><span class="dim">.</span>
     </h1>
     <div class="terminal-line">
-      <span class="terminal-prompt">$</span>
+      <!-- <span class="terminal-prompt">$</span> -->
       <span class="typed-text" id="typedText"></span><span class="cursor"></span>
     </div>
     <p class="hero-desc">
@@ -587,11 +627,11 @@
         <div class="stat-label">CGPA</div>
       </div>
       <div class="stat">
-        <div class="stat-num">2+</div>
+        <div class="stat-num">4+</div>
         <div class="stat-label">Projects</div>
       </div>
       <div class="stat">
-        <div class="stat-num">2</div>
+        <div class="stat-num">3</div>
         <div class="stat-label">Certs</div>
       </div>
     </div>
@@ -644,7 +684,6 @@
       <div class="info-card">
         <span class="info-card-label">Location</span>
         <span class="info-card-value">Andhra Pradesh, India</span>
-        <span class="info-card-sub">Greater Hyderabad Area</span>
       </div>
       <div class="info-card">
         <span class="info-card-label">Contact</span>
@@ -773,9 +812,51 @@
     <div class="section-eyebrow">What I've Built</div>
     <h2 class="section-title">Featured Projects</h2>
   </div>
-  <div class="projects-grid">
 
-    <div class="project-card reveal">
+  <!-- Filter Tabs -->
+  <div class="filter-tabs reveal">
+    <button class="filter-tab active" data-filter="all">All Projects</button>
+    <button class="filter-tab" data-filter="ai-ml">AI / Machine Learning</button>
+    <button class="filter-tab" data-filter="fullstack">Full-Stack</button>
+    <button class="filter-tab" data-filter="systems">Systems &amp; Middleware</button>
+  </div>
+
+  <div class="projects-grid" id="projectsGrid">
+
+    <!-- CARD 1: SAIOF -->
+    <div class="project-card reveal" data-category="systems">
+      <div class="project-header">
+        <div class="project-icon">⚡</div>
+        <div class="project-links">
+          <a href="https://saiof.vercel.app" class="project-link" title="Live Demo">↗</a>
+          <a href="https://github.com/Sandeep-31-06/SAIOF.git" class="project-link" title="GitHub">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          </a>
+        </div>
+      </div>
+      <span class="project-category-badge">Systems &amp; Middleware</span>
+      <div class="project-name">SAIOF — Smart Adaptive Intelligent Optimization Framework</div>
+      <p class="project-desc">
+        An AI-powered middleware optimization platform with request caching, duplicate detection, request merging, analytics, and ML-based traffic forecasting. Simulated 5000+ API requests with benchmark-level results.
+      </p>
+      <div class="project-metrics">
+        <span class="metric">835 req/s throughput</span>
+        <span class="metric">87% cache hit</span>
+        <span class="metric">100% dup block</span>
+        <span class="metric">88.2% merge eff.</span>
+      </div>
+      <div class="project-stack">
+        <span class="skill-tag">MERN</span>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">FastAPI</span>
+        <span class="skill-tag">MongoDB</span>
+        <span class="skill-tag">Scikit-learn</span>
+        <span class="skill-tag">Docker</span>
+      </div>
+    </div>
+
+    <!-- CARD 2: Mental Health -->
+    <div class="project-card reveal" data-category="ai-ml">
       <div class="project-header">
         <div class="project-icon">🧠</div>
         <div class="project-links">
@@ -785,13 +866,14 @@
           </a>
         </div>
       </div>
+      <span class="project-category-badge">AI / ML</span>
       <div class="project-name">AI Youth Mental Health System</div>
       <p class="project-desc">
-        An AI-driven full-stack platform processing 500+ mood records using NLP sentiment analysis and Generative AI for behavioral insights. Features RAG architecture for therapist-like contextual interactions.
+        An AI-driven full-stack platform processing 500+ mood records using NLP sentiment analysis and Generative AI for behavioral insights. Features RAG architecture for therapist-like contextual interactions and secure Google OAuth authentication.
       </p>
       <div class="project-metrics">
         <span class="metric">500+ mood records</span>
-        <span class="metric">+20% prediction accuracy</span>
+        <span class="metric">+20% accuracy</span>
         <span class="metric">RAG architecture</span>
       </div>
       <div class="project-stack">
@@ -804,33 +886,64 @@
       </div>
     </div>
 
-    <div class="project-card reveal">
+    
+
+    <!-- CARD 3: JustiBot -->
+    <div class="project-card reveal" data-category="ai-ml">
       <div class="project-header">
-        <div class="project-icon">⚡</div>
+        <div class="project-icon">⚖️</div>
         <div class="project-links">
-          <a href="https://saiof.vercel.app" class="project-link" title="Live Demo">↗</a>
-          <a href="https://github.com/Sandeep-31-06/SAIOF.git" class="project-link" title="GitHub">
+          <a href="https://justibot.vercel.app/" class="project-link" title="Live Demo">↗</a>
+          <a href="https://github.com/Sandeep-31-06/justibot" target="_blank" class="project-link" title="GitHub">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
           </a>
         </div>
       </div>
-      <div class="project-name">SAIOF — Smart Adaptive Intelligent Optimization Framework</div>
+      <span class="project-category-badge">AI / ML</span>
+      <div class="project-name">JustiBot — AI Legal Assistant</div>
       <p class="project-desc">
-        An AI-powered middleware optimization platform integrating request caching, duplicate detection, request merging, analytics, and ML-based traffic forecasting for scalable applications.
+        An AI-powered legal chatbot designed to make justice accessible. JustiBot answers legal queries, explains rights, and guides users through legal processes using NLP and generative AI — making legal knowledge available to everyone, not just lawyers.
       </p>
       <div class="project-metrics">
-        <span class="metric">835 req/s throughput</span>
-        <span class="metric">87% cache hit ratio</span>
-        <span class="metric">100% duplicate block</span>
-        <span class="metric">88.2% merge efficiency</span>
+        <span class="metric">NLP-powered Q&amp;A</span>
+        <span class="metric">Legal domain AI</span>
+        <span class="metric">Conversational UX</span>
       </div>
       <div class="project-stack">
-        <span class="skill-tag">MERN</span>
         <span class="skill-tag">Python</span>
+        <span class="skill-tag">GenAI API</span>
+        <span class="skill-tag">NLP</span>
+        <span class="skill-tag">React.js</span>
         <span class="skill-tag">FastAPI</span>
-        <span class="skill-tag">MongoDB</span>
-        <span class="skill-tag">Scikit-learn</span>
-        <span class="skill-tag">Docker</span>
+      </div>
+    </div>
+
+    <!-- CARD 4: Random Recipe -->
+    <div class="project-card reveal" data-category="fullstack">
+      <div class="project-header">
+        <div class="project-icon">🍽️</div>
+        <div class="project-links">
+          <a href="https://github.com/Sandeep-31-06/Random-Recipe" target="_blank" class="project-link" title="GitHub">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          </a>
+        </div>
+      </div>
+      <span class="project-category-badge">Full-Stack</span>
+      <div class="project-name">Random Recipe — Meal Discovery App</div>
+      <p class="project-desc">
+        A fun and interactive full-stack web app that serves up random recipes from around the world. Users can discover new meals, view ingredients and instructions, and filter by cuisine or dietary preference — powered by a live recipe API.
+      </p>
+      <div class="project-metrics">
+        <span class="metric">Live recipe API</span>
+        <span class="metric">Random discovery</span>
+        <span class="metric">Cuisine filters</span>
+      </div>
+      <div class="project-stack">
+        <span class="skill-tag">React.js</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">REST API</span>
+        <span class="skill-tag">CSS3</span>
+        <span class="skill-tag">Vercel</span>
       </div>
     </div>
 
@@ -860,6 +973,14 @@
         <div class="achievement-name">Salesforce Certified Agentforce Specialist</div>
         <div class="achievement-org">Salesforce · 2025</div>
         <div class="achievement-desc">Demonstrated expertise in AI-driven automation and intelligent customer workflow optimization to enhance operational efficiency and service delivery.</div>
+      </div>
+    </div>
+    <div class="achievement-card reveal">
+      <div class="achievement-icon">💡</div>
+      <div>
+        <div class="achievement-name">GenAI Hackathon Participant</div>
+        <div class="achievement-org">Hack2Skills · 2025</div>
+        <div class="achievement-desc">Participated in the Hack2Skills GenAI hackathon, designing custom prototype agents under strict 24hr deadlines.</div>
       </div>
     </div>
   </div>
@@ -937,6 +1058,28 @@
     setTimeout(type, deleting ? 45 : 80);
   }
   type();
+
+  // Project filter tabs
+  const filterTabs = document.querySelectorAll('.filter-tab');
+  const projectCards = document.querySelectorAll('#projectsGrid .project-card');
+
+  filterTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      filterTabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const filter = tab.getAttribute('data-filter');
+      projectCards.forEach(card => {
+        const cat = card.getAttribute('data-category');
+        const show = filter === 'all' || cat === filter;
+        card.setAttribute('data-hidden', show ? 'false' : 'true');
+        // re-trigger reveal animation for visible cards
+        if (show) {
+          card.classList.remove('visible');
+          setTimeout(() => card.classList.add('visible'), 80);
+        }
+      });
+    });
+  });
 
   // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
